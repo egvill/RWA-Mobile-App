@@ -248,7 +248,7 @@
   </a>
   &nbsp;&nbsp;
   <a href="https://github.com/egvill/RWA-Mobile-App/releases/latest">
-    <img src="https://img.shields.io/github/downloads/egvill/RWA-Mobile-App/total?style=for-the-badge&logo=android&label=Скачать%20Android&color=34A853" alt="Скачать Android" height="40" style="vertical-align: middle;" />
+    <img src="https://img.shields.io/github/downloads/egvill/RWA-Mobile-App/total?style=for-the-badge&logo=android&label=Download%20Android&color=34A853" alt="Download Android" height="40" style="vertical-align: middle;" />
   </a>
   <!-- &nbsp;&nbsp; -->
   <!-- <a href="https://github.com/egvill/RWA-Mobile-App/releases/latest"> -->
