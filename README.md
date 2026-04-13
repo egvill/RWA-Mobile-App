@@ -247,7 +247,7 @@
     <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Загрузить в App Store" height="50" style="vertical-align: middle;" />
   </a>
   &nbsp;&nbsp;
-  <a href="https://github.com/egvill/RWA-Mobile-App/releases/latest">
+  <a href="https://play.google.com/store/apps/details?id=com.rwpanel.adminmonitor">
     <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Загрузить в Google Play" height="68" style="vertical-align: middle;" />
   </a>
 </p>
