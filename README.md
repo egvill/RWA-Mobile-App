@@ -243,7 +243,9 @@
 ## 📥 Установка
 
 <p align="center">
-  <a href="https://apps.apple.com/us/app/wave-machine/id6760419820"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="68" style="vertical-align: middle;" /></a><a href="https://github.com/egvill/RWA-Mobile-App/releases/latest"><img src="https://img.shields.io/github/downloads/egvill/RWA-Mobile-App/total?style=for-the-badge&logo=android&label=Download%20Android&color=34A853" alt="Download Android" height="40" style="vertical-align: middle;" /></a>
+  <a href="https://apps.apple.com/us/app/wave-machine/id6760419820"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="68" /></a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/egvill/RWA-Mobile-App/releases/latest"><img src="https://img.shields.io/github/downloads/egvill/RWA-Mobile-App/total?style=for-the-badge&logo=android&label=Download%20Android&color=34A853" alt="Download Android" height="40" /></a>
 </p>
 
 ---
@@ -507,7 +509,9 @@ Make the app yours:
 ## 📥 Installation
 
 <p align="center">
-  <a href="https://apps.apple.com/us/app/wave-machine/id6760419820"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="68" style="vertical-align: middle;" /></a><a href="https://github.com/egvill/RWA-Mobile-App/releases/latest"><img src="https://img.shields.io/github/downloads/egvill/RWA-Mobile-App/total?style=for-the-badge&logo=android&label=Download%20Android&color=34A853" alt="Download Android" height="40" style="vertical-align: middle;" /></a>
+  <a href="https://apps.apple.com/us/app/wave-machine/id6760419820"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="68" /></a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/egvill/RWA-Mobile-App/releases/latest"><img src="https://img.shields.io/github/downloads/egvill/RWA-Mobile-App/total?style=for-the-badge&logo=android&label=Download%20Android&color=34A853" alt="Download Android" height="40" /></a>
 </p>
 
 ---
