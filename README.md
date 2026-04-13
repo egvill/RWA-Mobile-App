@@ -247,14 +247,11 @@
   <a href="https://apps.apple.com/us/app/wave-machine/id6760419820">
     <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="68" style="vertical-align: middle;" />
   </a>
-  &nbsp;&nbsp;&nbsp;
+
+
   <a href="https://github.com/egvill/RWA-Mobile-App/releases/latest">
     <img src="https://img.shields.io/github/downloads/egvill/RWA-Mobile-App/total?style=for-the-badge&logo=android&label=Download%20Android&color=34A853" alt="Download Android" height="40" style="vertical-align: middle;" />
   </a>
-
-  <!-- <a href="https://github.com/egvill/RWA-Mobile-App/releases/latest"> -->
-    <!-- <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Загрузить в Google Play" height="68" style="vertical-align: middle;" /> -->
-  <!-- </a> -->
 </p>
 
 ---
@@ -521,13 +518,11 @@ Make the app yours:
   <a href="https://apps.apple.com/us/app/wave-machine/id6760419820">
     <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="68" style="vertical-align: middle;" />
   </a>
-  &nbsp;&nbsp;&nbsp;
+
+
   <a href="https://github.com/egvill/RWA-Mobile-App/releases/latest">
     <img src="https://img.shields.io/github/downloads/egvill/RWA-Mobile-App/total?style=for-the-badge&logo=android&label=Download%20Android&color=34A853" alt="Download Android" height="40" style="vertical-align: middle;" />
   </a>
-  <!-- <a href="https://play.google.com/store/apps/details?id=com.rwpanel.adminmonitor"> -->
-    <!-- <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" height="68" style="vertical-align: middle;" /> -->
-  <!-- </a> -->
 </p>
 
 ---
