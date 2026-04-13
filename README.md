@@ -566,5 +566,5 @@ This project is proprietary software. All rights reserved.
 ---
 
 <p align="center">
-  Made with ❤️ for the [Bedolaga](https://github.com/BEDOLAGA-DEV) and Remnawave community
+  Made with ❤️ for the <a href="https://github.com/BEDOLAGA-DEV">Bedolaga</a> and Remnawave community
 </p>
