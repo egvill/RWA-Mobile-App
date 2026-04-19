@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Поддержать RWA</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@400;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --border: #2a2a2a;
+    --accent: #00e5a0;
+    --accent-dim: rgba(0,229,160,0.1);
+    --accent-mid: rgba(0,229,160,0.25);
+    --text: #f0f0f0;
+    --muted: #888;
+    --mono: 'JetBrains Mono', monospace;
+    --display: 'Unbounded', sans-serif;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1rem 5rem;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,229,160,0.07) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    max-width: 640px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent-mid);
+    background: var(--accent-dim);
+    padding: 4px 14px;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+    animation: fadein 0.5s ease both;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    animation: fadein 0.5s 0.1s ease both;
+  }
+
+  h1 span { color: var(--accent); }
+
+  .subtitle {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 420px;
+    margin: 0 auto;
+    animation: fadein 0.5s 0.2s ease both;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    transition: border-color 0.2s, background 0.2s;
+    animation: fadein 0.4s ease both;
+    cursor: default;
+  }
+
+  .card:hover {
+    border-color: rgba(0,229,160,0.35);
+    background: #191919;
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.75rem;
+  }
+
+  .coin-icon {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .coin-name {
+    font-family: var(--display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .coin-net {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-left: auto;
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 100px;
+  }
+
+  .address-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #0d0d0d;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+
+  .address {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: #c0c0c0;
+    word-break: break-all;
+    flex: 1;
+    line-height: 1.5;
+    user-select: all;
+  }
+
+  .copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    color: var(--muted);
+    transition: color 0.15s, background 0.15s;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .copy-btn:hover { color: var(--accent); background: var(--accent-dim); }
+  .copy-btn.copied { color: var(--accent); }
+
+  .tribute-card {
+    border: 1.5px solid rgba(0,229,160,0.4);
+    background: rgba(0,229,160,0.04);
+  }
+
+  .tribute-card .coin-name { color: var(--accent); }
+
+  .tribute-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: #0d0d0d;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 13px;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .tribute-link:hover { border-color: var(--accent); color: var(--accent); }
+
+  .arrow {
+    font-size: 16px;
+    transition: transform 0.15s;
+  }
+  .tribute-link:hover .arrow { transform: translateX(3px); }
+
+  .address-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin: 1.75rem 0 0.75rem;
+    padding-left: 2px;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 11px;
+    color: #444;
+    letter-spacing: 0.05em;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 2rem; left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: var(--accent);
+    color: #000;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 100px;
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    pointer-events: none;
+    z-index: 100;
+    white-space: nowrap;
+  }
+
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @keyframes fadein { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.10s; }
+  .card:nth-child(3) { animation-delay: 0.15s; }
+  .card:nth-child(4) { animation-delay: 0.20s; }
+  .card:nth-child(5) { animation-delay: 0.25s; }
+  .card:nth-child(6) { animation-delay: 0.30s; }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="header">
+    <div class="badge">Support RWA</div>
+    <h1>Сделать приложение<br><span>лучше</span></h1>
+    <p class="subtitle">Донаты = стабильность + новые функции и поддержка 🛠️<br>Любой вклад помогает двигаться вперёд.</p>
+  </div>
+
+  <p class="section-label">Платёжные платформы</p>
+  <div class="cards">
+    <div class="card tribute-card">
+      <div class="card-head">
+        <div class="coin-icon" style="background:rgba(0,229,160,0.1);">✨</div>
+        <span class="coin-name">Tribute</span>
+      </div>
+      <a class="tribute-link" href="https://tribute.tg" target="_blank" rel="noopener">
+        <span>Подкинуть монет на Tribute</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <p class="section-label">Криптовалюта — скопируй адрес и отправь с любого кошелька</p>
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-head">
+        <div class="coin-icon" style="background:#1a2a1a; color:#26a17b; font-weight:700; font-size:13px;">₮</div>
+        <div>
+          <div class="coin-name">USDT <span style="color:var(--muted); font-weight:400; font-size:11px;">· Tether</span></div>
+          <div style="font-size:10px; color:var(--muted); margin-top:2px;">Сеть: TRC-20 (Tron) — низкая комиссия</div>
+        </div>
+      </div>
+      <div class="address-label">Адрес кошелька</div>
+      <div class="address-wrap">
+        <span class="address">THtJ2praLLspuH29rjUQyM1h3txBog1cjV</span>
+        <button class="copy-btn" onclick="copy(this,'THtJ2praLLspuH29rjUQyM1h3txBog1cjV')" title="Скопировать">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="coin-icon" style="background:#1a1a2e; color:#627eea; font-weight:700; font-size:13px;">Ξ</div>
+        <div>
+          <div class="coin-name">USDT · ETH · ETC <span style="color:var(--muted); font-weight:400; font-size:11px;">· Ethereum</span></div>
+          <div style="font-size:10px; color:var(--muted); margin-top:2px;">Один адрес для всех токенов ERC-20</div>
+        </div>
+      </div>
+      <div class="address-label">Адрес кошелька</div>
+      <div class="address-wrap">
+        <span class="address">0x08c040a515f33d289d5c9311cbd0014662e9ac32</span>
+        <button class="copy-btn" onclick="copy(this,'0x08c040a515f33d289d5c9311cbd0014662e9ac32')" title="Скопировать">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="coin-icon" style="background:#0e1f2e; color:#0098ea; font-weight:700; font-size:12px;">TON</div>
+        <div>
+          <div class="coin-name">TON <span style="color:var(--muted); font-weight:400; font-size:11px;">· Toncoin</span></div>
+          <div style="font-size:10px; color:var(--muted); margin-top:2px;">Сеть: TON (The Open Network)</div>
+        </div>
+      </div>
+      <div class="address-label">Адрес кошелька</div>
+      <div class="address-wrap">
+        <span class="address">UQBUoveJ1_jWebhz9lp701_S0v_1xlPSSpULNPxdbTKfp89e</span>
+        <button class="copy-btn" onclick="copy(this,'UQBUoveJ1_jWebhz9lp701_S0v_1xlPSSpULNPxdbTKfp89e')" title="Скопировать">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="coin-icon" style="background:#2a1800; color:#f7931a; font-weight:700; font-size:13px;">₿</div>
+        <div>
+          <div class="coin-name">BTC <span style="color:var(--muted); font-weight:400; font-size:11px;">· Bitcoin</span></div>
+          <div style="font-size:10px; color:var(--muted); margin-top:2px;">Сеть: Bitcoin (Legacy)</div>
+        </div>
+      </div>
+      <div class="address-label">Адрес кошелька</div>
+      <div class="address-wrap">
+        <span class="address">1MisiN3ZZnTPWk9jEfdRhdbJ3qDZVYngcW</span>
+        <button class="copy-btn" onclick="copy(this,'1MisiN3ZZnTPWk9jEfdRhdbJ3qDZVYngcW')" title="Скопировать">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">RWA — Wave Machine &nbsp;·&nbsp; Все права защищены</div>
+</div>
+
+<div class="toast" id="toast">Скопировано!</div>
+
+<script>
+  function copy(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      btn.classList.add('copied');
+      const t = document.getElementById('toast');
+      t.classList.add('show');
+      setTimeout(() => { t.classList.remove('show'); btn.classList.remove('copied'); }, 1800);
+    });
+  }
+</script>
+</body>
+</html>
